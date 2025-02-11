@@ -1,63 +1,91 @@
-﻿﻿namespace Homework2
+﻿namespace HomeWork3;
+
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Code for Q1
-            Console.WriteLine("Enter a grade (A, B, C, D, F):");
-            string grade = Console.ReadLine().ToUpper();
-            switch (grade)
-            {
-                case "A":
-                    Console.WriteLine("GPA: 4");
-                    break;
-                case "B":
-                    Console.WriteLine("GPA: 3");
-                    break;
-                case "C":
-                    Console.WriteLine("GPA: 2");
-                    break;
-                case "D":
-                    Console.WriteLine("GPA: 1");
-                    break;
-                case "F":
-                    Console.WriteLine("GPA: 0");
-                    break;
-                default:
-                    Console.WriteLine("Wrong Letter Grade!");
-                    break;
-            }
-
-            // Code for Q2
-            Console.WriteLine("Enter three numbers:");
-            int num1 = Convert.ToInt16(Console.ReadLine());
-            int num2 = Convert.ToInt16(Console.ReadLine());
-            int num3 = Convert.ToInt16(Console.ReadLine());
-
-            int smallest = num1;
-            if (num2 < smallest)
-            {
-                smallest = num2;
-            }
-            if (num3 < smallest)
-            {
-                smallest = num3;
-            }
+            // Code for Q1: Check if a number is prime
+            Console.WriteLine("Enter a number for Q1:");
+            int n1 = int.Parse(Console.ReadLine());
+            bool isPrime = true;
             
-            Console.WriteLine("The smallest number is: " + smallest);
-
-            // Code for Bonus question
-            Console.WriteLine("Enter a year to check if it is a leap year:");
-            int year = Convert.ToInt16(Console.ReadLine());
-
-            if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+            if (n1 <= 1)
             {
-                Console.WriteLine(year + " is a leap year.");
+                isPrime = false;
             }
             else
             {
-                Console.WriteLine(year + " is not a leap year.");
+                for (int i = 2; i < n1; i++)
+                {
+                    if (n1 % i == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+
+            if (isPrime)
+            {
+                Console.WriteLine($"{n1} is prime");
+            }
+            else
+            {
+                Console.WriteLine($"{n1} is non-prime");
+            }
+
+            // Code for Q2: Print square pattern
+            Console.WriteLine("Enter a number for Q2:");
+            int n2 = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n2; i++)
+            {
+                for (int j = 0; j < n2; j++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+
+            // Code for Q3: Print diagonal pattern
+            Console.WriteLine("Enter a number for Q3:");
+            int n3 = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < n3; i++)
+            {
+                for (int j = 0; j < n3; j++)
+                {
+                    if (i == j || i + j == n3 - 1)
+                    {
+                        Console.Write("* ");
+                    }
+                    else
+                    {
+                        Console.Write("  ");
+                    }
+                }
+                Console.WriteLine();
+            }
+
+            // Code for Bonus question: Print cross pattern
+            Console.WriteLine("Enter a number for the Bonus question:");
+            int nBonus = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < nBonus; i++)
+            {
+                for (int j = 0; j < nBonus; j++)
+                {
+                    if (i == j || i + j == nBonus - 1)
+                    {
+                        Console.Write("* ");
+                    }
+                    else
+                    {
+                        Console.Write("  ");
+                    }
+                }
+                Console.WriteLine();
             }
         }
     }
